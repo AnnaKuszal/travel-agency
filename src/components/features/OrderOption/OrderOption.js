@@ -3,13 +3,36 @@ import PropTypes from 'prop-types';
 
 import styles from './OrderOption.scss';
 
-const OrderOption = (props) => (
-  <div className={styles.component}>
-    <h2 className={styles.title}>
-      {props.title} 
-    </h2>
-  </div>
-);
+import OrderOptionDropdown from './OrderOptionDropdown.js';
+import OrderOptionIcons from './OrderOptionIcons.js';
+import OrderOptionNumber from './OrderOptionNumber.js';
+import OrderOptionCheckboxes from './OrderOptionCheckboxes.js';
+
+
+
+const optionTypes = {
+  dropdown: OrderOptionDropdown,
+  icons: OrderOptionIcons,
+  checkboxes: OrderOptionCheckboxes,
+  number: OrderOptionNumber,
+};
+
+const OrderOption = ({name, type, id, setOrderOption, ...otherProps}) => {
+  const OptionComponent = optionTypes[type];
+  if(!OptionComponent){
+    return null;
+  } else {
+    return (
+      <div className={styles.component}>
+        <h3 className={styles.title}>{name}</h3>
+        <OptionComponent
+          {...otherProps}
+          setOptionValue={value => setOrderOption({[id]: value})}
+        />
+      </div>
+    );
+  }
+};
 
   
 OrderOption.propTypes = {
