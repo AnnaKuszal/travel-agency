@@ -8,8 +8,6 @@ import OrderOptionIcons from './OrderOptionIcons.js';
 import OrderOptionNumber from './OrderOptionNumber.js';
 import OrderOptionCheckboxes from './OrderOptionCheckboxes.js';
 
-
-
 const optionTypes = {
   dropdown: OrderOptionDropdown,
   icons: OrderOptionIcons,
@@ -18,6 +16,7 @@ const optionTypes = {
 };
 
 const OrderOption = ({name, type, id, setOrderOption, ...otherProps}) => {
+  
   const OptionComponent = optionTypes[type];
   if(!OptionComponent){
     return null;
