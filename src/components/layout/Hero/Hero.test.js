@@ -6,14 +6,13 @@ describe('Component Hero', () => {
   it('should render without crashing', () => {
     const component = shallow(<Hero titleText='Lorem ipsum' imageSrc='www.pexels.com' />);
     expect(component).toBeTruthy();
-    console.log(component.debug());
   });
-
+  
   it('should throw error without required props', () => {
     expect(() => shallow(<Hero />)).toThrow();
   });
 
-  it('should render correct title', () => {
+  it('should render correct title and image', () => {
     const expectedTitle = 'Lorem ipsum';
     const expectedImage = 'image.jpg';
     const component = shallow(<Hero titleText={expectedTitle} imageSrc={expectedImage} />);
