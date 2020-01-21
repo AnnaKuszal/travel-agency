@@ -60,9 +60,7 @@ describe('Component TripSummary', () => {
  
   it('should not render div with class "tags" in case if prop "tags" is "false" (was not passed) or is an empty array ', () => {
 
-    const expectedArray = [];
-
-    const component = shallow(<TripSummary id='abc' tags={expectedArray} image='image.jpg' name='Turkey' cost='1000.00' days={3} />);
+    const component = shallow(<TripSummary id='abc'  image='image.jpg' name='Turkey' cost='1000.00' days={3} />);
 
     expect(component.find('.tags')).toEqual({});
 
