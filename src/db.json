@@ -1,0 +1,22 @@
+{
+  "orders": [
+    {
+      "tripId": "5cc1d10130dfa407e2e54e20",
+      "tripName": "Pleasant travel in cool Turkey",
+      "countryCode": "TUR",
+      "car-rental": "luxury",
+      "accommodation": "house",
+      "features": [
+        "security",
+        "pool"
+      ],
+      "adults": "6",
+      "children": 0,
+      "name": "Anna",
+      "contact": "999 888 777",
+      "start-date": "2020-02-19T23:00:00.000Z",
+      "totalCost": "$334,084",
+      "id": 1
+    }
+  ]
+}
