@@ -8,11 +8,12 @@ import Icon from '../../common/Icon/Icon';
 const OrderOptionIcons = ({values, required, currentValue, setOptionValue}) => (
 
   <div className={styles.icon}>
+  
 
-    {required===undefined ||  required==='false' ? '' : ( 
+    {required==undefined || required==='false' ? '' : ( 
 
       <div className={styles.icon}
-        onClick={event => setOptionValue(event.value.id)}>
+        onClick={() => setOptionValue('')}>
         <Icon name='times-circle' />
         none
       </div>
@@ -25,9 +26,9 @@ const OrderOptionIcons = ({values, required, currentValue, setOptionValue}) => (
       <div className={value.id === currentValue ? styles.iconActive : styles.icon}
         key={value.id}
         value={value.id}
-        onClick={event => setOptionValue(event.value.id)}>
+        onClick={() => setOptionValue(value.id)}>
 
-        <Icon name={value.icon}/>
+        <Icon name={value.icon} />
         {value.name} ({formatPrice(value.price)})
         
       </div>
@@ -35,7 +36,7 @@ const OrderOptionIcons = ({values, required, currentValue, setOptionValue}) => (
     ))}
 
   </div>
-
+  
 );
 
 OrderOptionIcons.propTypes = {
