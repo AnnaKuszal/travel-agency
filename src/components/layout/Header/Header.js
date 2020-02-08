@@ -4,6 +4,8 @@ import styles from './Header.scss';
 import Icon from '../../common/Icon/Icon';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
+import PhoneNo from '../../features/PhoneNo/PhoneNo.js';
+
 class Header extends React.Component {
   render(){
     return (
@@ -28,7 +30,7 @@ class Header extends React.Component {
             </Col>
             <Col md={3} lg={2}>
               <div className={styles.contact}>
-                <Icon name='phone' /><span>678.243.8455</span>
+                <Icon name='phone' /><PhoneNo />
               </div>
             </Col>
           </Row>
@@ -36,6 +38,7 @@ class Header extends React.Component {
       </header>
     );
   }
+
 }
 
 export default Header;
