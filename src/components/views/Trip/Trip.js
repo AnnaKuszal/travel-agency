@@ -16,8 +16,26 @@ import OrderForm from '../../features/OrderForm/OrderFormContainer';
 import styles from './Trip.scss';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 
+import { promoPrice } from '../../../utils/promoPrice';
+
+
 const Trip = ({error, id, name, image, cost, days, description, country, intro}) => {
+  
+  const promo = promoPrice(cost, 20);
+  
+  const promoCost = 
+    promo.toLocaleString('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+
+  console.log('promoCost', promoCost); 
+
+
   if(error) return <NotFound />;
+  
   else return (
     <Section>
       <Grid>
@@ -35,6 +53,7 @@ const Trip = ({error, id, name, image, cost, days, description, country, intro})
               </div>
               <List variant='light'>
                 <ListItem title={`<strong>Duration:</strong> ${days} days`} icon='calendar-alt' />
+                <ListItem title={`<strong>Happy Hour price:</strong> from ${promoCost}`} icon='percent' />
                 <ListItem title={`<strong>Price:</strong> from ${cost}`} icon='money-bill-wave' />
               </List>
             </Col>
@@ -44,6 +63,8 @@ const Trip = ({error, id, name, image, cost, days, description, country, intro})
       <Grid>
         <Row>
           <Col xs={12}>
+            <h2>{`Price from: ${promoCost}`}</h2>
+            <h5>{`Standard price: ${cost}`}</h5>
             <PageTitle text='Trip details' />
             {HTMLParser(description)}
           </Col>

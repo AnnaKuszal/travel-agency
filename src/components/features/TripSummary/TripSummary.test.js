@@ -8,7 +8,6 @@ describe('Component TripSummary', () => {
     const expectedTagsArray = ['sea', 'pool'];
     const component = shallow(<TripSummary tags={expectedTagsArray} image='image.jpg' name='Turkey' cost='1000.00' days={3} />);
     expect(component).toBeTruthy();
-    //console.log(component.debug());
   });
 
   it('should display correct src and alt in <img>', () => {
@@ -63,8 +62,6 @@ describe('Component TripSummary', () => {
     const component = shallow(<TripSummary id='abc'  image='image.jpg' name='Turkey' cost='1000.00' days={3} />);
 
     expect(component.find('.tags')).toEqual({});
-
-    console.log(component.debug());
   });
 
   
